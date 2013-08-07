@@ -1,9 +1,12 @@
 $(document).ready(function () {
   $('form').click(function(event) {
     event.preventDefault();
+    var roll_die = Math.floor(Math.random() * 6) + 1;
+    var url = $(this).attr('action');
+    $.post(url, roll_die, function(server_response){
+      $('#die').html(server_response);
+    });
   });
- 
-
 });
 
 
